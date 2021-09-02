@@ -1,3 +1,6 @@
+import random
+import string 
+
 class User:
   """
   Class that generates new instance of user
@@ -49,6 +52,14 @@ class Credentials:
     '''
     return cls.cred_list
   
+  def generate_password(passlength = 8): #why is 'i' not accessible
+    '''
+    generate a random password which are a string of letters, digits and special characters
+    '''
+   
+    random_password = ''.join(random.choice(string.printable) for i in range(passlength))
+    print("Your generated password:",random_password)
+
 
 
   
