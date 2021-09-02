@@ -42,6 +42,13 @@ class Credentials:
     '''
     Credentials.cred_list.remove(self)
   
+  @classmethod
+  def display_cred(cls):
+    '''
+    method thhat returns the cred_list (of current user???)
+    '''
+    return cls.cred_list
+  
 
 
   
