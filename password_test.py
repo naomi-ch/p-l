@@ -93,6 +93,13 @@ class TestCredentials(unittest.TestCase):
 
     self.new_cred.delete_cred()
     self.assertEqual(len(Credentials.cred_list),1)
+  
+  def test_display_cred(self):
+    '''
+    test if it can return a list of creds saved to cred_list
+    '''
+
+    self.assertEqual(Credentials.display_cred(),Credentials.cred_list)
 
 
 
