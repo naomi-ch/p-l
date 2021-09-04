@@ -18,20 +18,28 @@ class User:
     '''
     User.user_list.append(self)
   
+  @classmethod
+  def user_exists(cls,name,password):
+
+    for user in cls.user_list:
+      if(user.username == name and user.password == password):
+        return True
+    return False
+  
 
 
 
-class Credentials:
+class Credentials: #must add classmethod to verify if user is in user list
   """
   Class that stores existing account credentials for the current user, 
   creates new accounts, and generates new password for outside apps
   """
   cred_list = []
 
-  def __init__(self,account,user_name,password): #need to make it so each social media needs its own username and password 
+  def __init__(self,account,user_name,cred_password): #need to make it so each social media needs its own username and password 
     self.account = account
     self.user_name = user_name
-    self.password = password 
+    self.cred_password = cred_password 
   
   def save_cred(self):
     '''
