@@ -76,7 +76,7 @@ class TestCredentials(unittest.TestCase):
     '''
     self.assertEqual(self.new_cred.account,"Twitter")
     self.assertEqual(self.new_cred.user_name,"riri_fe")
-    self.assertEqual(self.new_cred.password,"peanut4")
+    self.assertEqual(self.new_cred.cred_password,"peanut4")
 
   def test_save_cred(self):
     '''
