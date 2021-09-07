@@ -60,6 +60,21 @@ class Credentials: #must add classmethod to verify if user is in user list
     '''
     return cls.cred_list
   
+  @classmethod
+  def find_cred(cls, account):
+    '''
+    method that takes in an account name and returns a credential that matches the name
+    Args:
+      account: name of social media account in the credential saved
+    Returns:
+      credential account,username and password
+    '''
+    for credential in cls.cred_list:
+      if credential.account == account:
+        return credential
+
+
+  
   def generate_password(passlength = 8): #why is 'i' not accessible
     '''
     generate a random password which are a string of letters, digits and special characters
