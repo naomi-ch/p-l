@@ -63,6 +63,12 @@ def display_all_cred():
   '''
   return Credentials.display_cred()
 
+def find_credential(account):
+  '''
+  Function that finds a credential from cred_list from the account name
+  '''
+  return Credentials.find_cred(account)
+
 def password_random():
   '''
   Function that generates a random password
@@ -129,10 +135,11 @@ def main():
       '''
       Loop through functions after login in
       '''
-      print("""\nUse these short codes to manage your credentials:\n
-      ac: add a credential \n
-      dc: display credentials \n
-      cg: create a credential with a generated password \n
+      print("""\nUse these short codes to manage your credentials:
+      ac: add a credential 
+      dc: display credentials 
+      cg: create a credential with a generated password 
+      d: delete a credential 
       q: quit""")
       print('\n')
       user_input = input().lower()
@@ -165,45 +172,46 @@ def main():
             print("-"*20)
           else:
             print("There are no accounts to display")
-
-
-
       
+      elif user_input == 'cg':
+        print('\n')
+        print("Add an account")
+        print("-"*20)
 
+        account = input("Account: ")
+        user_name = input("Account Username: ")
+        gen_password = password_random()
 
+        save_credentials(create_cred(account,user_name,gen_password))
+        print('\n')
+        print(f"{account} credentials have been saved.")
+        print("*"*40)
+      
+      elif user_input == 'd':
+        print('\n')
+        print("Enter name of account you want deleted ")
+        print("-"*20)
+        acct = input().lower()
+        if find_credential(acct):
+          search_cred = find_credential(acct)
+          print("_"*50)
+          search_cred.delete_credentials()
+          print('\n')
+          print(f"{search_cred.account} account succesfully deleted.")
+        else:
+          print("That credential does not exist.")
 
-
-
-      '''
-      print("Confrm Password")
-      confirm_password = input()
-
-      while confirm_password != new_password:
-        print("Passwords must match. Please try again.")
-        print("Create Password")
-        new_password = input()
-        print("Confirm Password")
-        confirm_password = input()
+      elif user_input == 'q':
+        print('\n')
+        print("Thanks for using Password-Locker. Goodbye!")
+        break
 
       else:
-        print(f"Welcome {new_user}!")
-        print("Log into your account")
-        print("Enter Username")
-
-      '''
-    ''' 
-    if user_input == 'lg':
-      print("Enter Username")
-      current_user = input()
-
-      print("Enter Password")
-      current_user_password = input()
-    
-
-    '''
-    break
+        print("Invalid input, please use short codes provided")
 
 
+
+        
 
 
 if __name__ == '__main__':
