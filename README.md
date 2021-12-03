@@ -1,5 +1,5 @@
 # {Password-Locker}
-#### {Python application that allows users to generate and manage passwords for social media accounts.}, {7-Sept-2021}
+#### {Python application that allows users to generate and manage passwords for social media accounts.}, {3-Dec-2021}
 #### By **{Naomi Chika}**
 ## Description
 {This is a Python application that allows users to generate and manage passwords for social media accounts. This application runs in the Terminal and users navigate options with the usage of short codes.
